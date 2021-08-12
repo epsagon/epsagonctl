@@ -12,9 +12,9 @@ def run():
     cmd = _parse_args()
     res = {
         'iam': {
+            'invite-user': _invite_user,
             'list-users': _list_users,
             'list-groups': _list_groups,
-            'invite-user': _invite_user
         },
     }[cmd[VARS_COMMAND]][cmd[VARS_SUBCOMMAND]]()
 
