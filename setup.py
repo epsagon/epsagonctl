@@ -12,23 +12,23 @@ with open('./requirements.txt', 'r') as reqs_file:
 #     version = re.search(r'__version__ = \'(.*?)\'', consts_file.read()).group(1)
 
 setup(
-    name='epsagoncli',
+    name='epsagonctl',
     version='0.0.1',
-    description='Epsagon CLI',
+    description='Epsagon CTL',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='Epsagon',
     author_email='support@epsagon.com',
-    url='https://github.com/epsagon/epsagon-cli',
+    url='https://github.com/epsagon/epsagonctl',
     # packages=find_packages(exclude=('tests', 'examples')),
-    packages=['epsagoncli'],
+    packages=['epsagonctl'],
     package_data={'epsagon': ['*.pem']},
     install_requires=reqs,
     license='MIT',
     # setup_requires=['pytest-runner'],
     # tests_require=['pytest'],
     entry_points={
-        'console_scripts': ['epsagoncli = epsagoncli.__main__:run']
+        'console_scripts': ['epsagon = epsagonctl.__main__:run']
     },
     keywords=[
         'serverless',
