@@ -6,7 +6,7 @@
    <br />
  </p>
 
-# epsagon-cli
+# epsagonctl
 
 Epsagon's Command Line Interface.
 
@@ -20,9 +20,9 @@ Epsagon's Command Line Interface.
 
 Install the CLI with 
 
-    $ pip install epsagoncli
+    $ pip install epsagonctl
 
-And the package will be added to your PATH under `epsagoncli`.
+And the package will be added to your PATH under `epsagon`.
 
 ## Usage
 
@@ -40,16 +40,16 @@ IAM is Epsagon's central location for all things account-related.
 
 Invite a user to an account.
 
-    $ epsagoncli iam invite-user <EMAIL-ADDR>
+    $ epsagon iam invite-user <EMAIL-ADDR>
 
 <b> list-users </b>
 
 List all users in an account.
 
-    $ epsagoncli iam list-users
+    $ epsagon iam list-users
 
 <b> list-groups </b>
  
 List all groups in an account,
 
-    $ epsagoncli iam list-groups
+    $ epsagon iam list-groups
