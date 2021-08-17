@@ -1,5 +1,5 @@
 
-from epsagoncli.consts import (
+from epsagonctl.consts import (
     VARS_COMMAND, VARS_SUBCOMMAND, API_BASE_URL
 )
 
@@ -20,11 +20,10 @@ def _parse_args():
 
 
 def _req(path, method, headers=None, body=None):
-    print(method, f'{API_BASE_URL}/{path}')
     return {
         'get': lambda _url, _headers=None: requests.get(_url, headers=_headers or {}),
         'post': lambda _url, _headers=None: requests.post(_url, headers=_headers or {}),
-    }.get(method)(f'{API_BASE_URL}/{path}', {'Authorization': 'Bearer 87a6f6b4-b796-455d-9d5e-bba5119c7d87'})
+    }.get(method)(f'{API_BASE_URL}/{path}', {'Authorization': 'Bearer 2db3136a-bcc2-458c-b717-a1f78cd74942'})
 
 def _invite_user():
     pass
@@ -37,3 +36,28 @@ def _list_groups():
 
 def _invite_user():
     return _req('auth/invite_user', 'post')
+
+
+
+
+
+def init_cli():
+    epsagon_path = os.path.expanduser('~/.epsagon')
+    if not os.path.exists(epsagon_path):
+        with open(epsagon_path, 'w+') as epsagon_file:
+            epsagon_file.write()
+        # cmd('mkdir', PIPS_PATH)
+    # if not os.path.exists(CREDENTIALS_PATH):
+        name = input('Org Name: ')
+        pips_id = input('PIPS id: ')
+        with open(CREDENTIALS_PATH, 'w+') as creds_f:
+            toml.dump({'credentials': {'name': name, 'pips_id': pips_id}}, creds_f)
+        # cmd('echo', f'"{creds_toml}"', '>', CREDENTIALS_PATH, log=True)
+
+
+def verify_action():
+    res = input('Continue? [y/N]\n -> ')
+    if 'y' in res:
+        return True
+    print('Bye.')
+    return False
